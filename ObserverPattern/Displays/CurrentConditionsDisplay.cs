@@ -9,15 +9,26 @@ namespace ObserverPattern.Displays
 {
     internal class CurrentConditionsDisplay : IDisplayElement, IObserver
     {
+        private float temperature;
+        private float humidity;
+        private ISubject weatherData;
+
+        public CurrentConditionsDisplay(ISubject weatherData)
+        {
+            this.weatherData = weatherData;
+            weatherData.RegisterObserver(this);
+        }
         public void Display()
         {
-            return ;
+            Console.WriteLine("Current conditions: " + temperature + "F degrees and " + humidity + "% humidity");
         }
 
 
-        public void Update(double temp, double humidity, double pressure)
+        public void Update(float temp, float humidity, float pressure)
         {
-            throw new NotImplementedException();
+            this.temperature = temp;
+            this.humidity = humidity;
+            Display();
         }
     }
 }
