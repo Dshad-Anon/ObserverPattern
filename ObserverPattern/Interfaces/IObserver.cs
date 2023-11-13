@@ -15,6 +15,6 @@ namespace ObserverPattern.Interfaces
         /// <param name="temp"></param>
         /// <param name="humidity"></param>
         /// <param name="pressure"></param>
-        void Update(double temp,double humidity,double pressure);
+        void Update(float temp,float humidity,float pressure);
     }
 }

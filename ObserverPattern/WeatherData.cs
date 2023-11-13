@@ -11,10 +11,10 @@ namespace ObserverPattern
     internal class WeatherData : ISubject
     {
 
-        private double temperature;
-        private double humidity;
-        private double pressure;
-        private readonly List<IObserver> observerslist;
+        private float temperature;
+        private float humidity;
+        private float pressure;
+        private List<IObserver> observerslist;
 
         public WeatherData()
         {
@@ -47,15 +47,25 @@ namespace ObserverPattern
         {
             NotifyObserver();
         }
-        public void SetMeasurements(double temperature, double humidity, double pressure)
+        public void SetMeasurements(float temperature, float humidity, float pressure)
         {
             this.temperature = temperature;
             this.humidity = humidity;
             this.pressure = pressure;
             MeasurementsChanged();
         }
-        
-
+        public float GetTemperature()
+        {
+            return temperature;
+        }
+        public float GetHumidity()
+        {
+            return humidity;
+        }
+        public float GetPressure()
+        {
+            return pressure;
+        }
        
     }
 }
